@@ -3,6 +3,7 @@ const app = express();
 require("./connect");
 const User = require("./user");
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const image = require("./image_upload/image");
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -82,7 +83,11 @@ app.post("/loggedin", (req, res) => {
           .compare(forms.password, data[0].password)
           .then((isMatch) => {
             if (isMatch) {
-              res.json(data);
+              const token = jwt.sign(
+                data,
+                "678342687jhdshgdvssxdf8789kj8yhjhj"
+              );
+              res.json({ data, token });
             } else {
               res.status(500).send("<h1>User Does not exist</h1>");
             }
@@ -94,3 +99,18 @@ app.post("/loggedin", (req, res) => {
       res.send(error);
     });
 });
+app.get("/protected", authenticate);
+function authenticate(res, req, next) {
+  const token = "";
+  const decode = jwt.verify(
+    token,
+    "678342687jhdshgdvssxdf8789kj8yhjhj",
+    function (error, decoded) {
+      if (error) {
+        res.status(404).send("No User");
+      } else {
+        res.send(decoded);
+      }
+    }
+  );
+}
