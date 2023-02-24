@@ -1,0 +1,334 @@
+@media only screen and (max-width: 700px) {
+  .side-div1 li {
+    display: none;
+  }
+  #top3 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .flexit {
+    flex-direction: column;
+  }
+  #search {
+    display: none;
+  }
+  .side-div1 {
+    margin-left: 0%;
+    width: 20%;
+  }
+  .side-div1 li {
+    font-size: 16px;
+  }
+  .user {
+    width: 100%;
+    margin-right: 0%;
+  }
+  #icon {
+    display: none;
+  }
+}
+body {
+  margin: 0;
+}
+input {
+  font-size: 20px;
+}
+.user {
+  background-color: white;
+  width: 55%;
+  margin-right: 3%;
+}
+.user h1,
+label {
+  margin-left: 3%;
+}
+.user h1 {
+  font-size: 40px;
+}
+.user label {
+  color: #888888;
+  font-weight: 450;
+  font-size: 20px;
+}
+.user hr {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.side-div1 {
+  width: 20%;
+  margin-left: 12%;
+  color: white;
+  background-color: rgb(27, 27, 27);
+}
+.side-div1 ul {
+  padding: 0;
+  margin: 0;
+}
+.side-div1 ul li {
+  padding-left: 30px;
+  border-left: 7px solid rgb(27, 27, 27);
+  height: 1cm;
+}
+.side-div1 li {
+  font-size: 18px;
+  font-weight: 300;
+}
+.side-div1 li span {
+  margin-left: 20px;
+}
+#stop:hover {
+  color: greenyellow;
+  cursor: pointer;
+  border-left: 7px solid greenyellow;
+}
+#edit {
+  margin-top: 5%;
+  border-radius: 25px;
+  border-color: #888888;
+  width: 5cm;
+  height: 1cm;
+  margin-left: 3%;
+  background-color: white;
+  font-size: 20px;
+}
+#edit:hover {
+  cursor: pointer;
+}
+.fotter {
+  background-color: rgb(0, 0, 0);
+}
+.Password {
+  width: 55%;
+  margin-right: 3%;
+  background-color: white;
+}
+.Password label {
+  font-weight: 700;
+  margin-left: 5%;
+}
+.Password input {
+  margin-left: 5%;
+  width: 90%;
+  height: 5%;
+  border-radius: 5px;
+}
+.Password h1 {
+  font-size: 40px;
+  margin-left: 5%;
+}
+.password {
+  border-radius: 35px;
+  width: 5cm;
+  border: none;
+  height: 1.5cm;
+  margin-left: 5%;
+  background-color: rgb(30, 215, 96);
+  font-size: 15px;
+  font-weight: 700;
+}
+.password:hover {
+  transform: scale(1.1);
+}
+.cancel {
+  color: #888888;
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 43%;
+  height: 1.5cm;
+  width: 5cm;
+  background-color: white;
+  border: none;
+}
+.buttons {
+  display: flex;
+}
+.cancel:hover {
+  transform: scale(1.1);
+  color: black;
+}
+.nav-div {
+  display: flex;
+  background-color: rgb(16, 16, 16);
+  width: 100%;
+  color: white;
+  height: 2cm;
+}
+.nav-div ul {
+  margin-left: auto;
+  display: inline-flex;
+  margin-bottom: 3%;
+  margin-right: 13%;
+}
+.nav-div li {
+  align-self: center;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+}
+.nav-div li:hover {
+  color: greenyellow;
+}
+.nav-div h1 {
+  margin-left: 4%;
+  align-self: flex-start;
+  color: white;
+}
+.row1 {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.edit {
+  width: 55%;
+  margin-right: 3%;
+  background-color: white;
+}
+.edit label,
+input,
+h1 {
+  margin-left: 3%;
+}
+.edit input {
+  width: 85%;
+  height: 4%;
+}
+#gender {
+  width: 86%;
+  height: 4.5%;
+  margin-left: 3%;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.edit #date {
+  width: 20%;
+}
+.edit #month {
+  margin-left: 2%;
+  width: 15%;
+  font-size: 18px;
+  height: 1.2cm;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+select option {
+  margin-left: 5%;
+  font-size: 18px;
+}
+.edit #year {
+  width: 25%;
+}
+.edit label {
+  font-size: 15px;
+  font-weight: 750;
+}
+.edit hr {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.edit input {
+  border-radius: 5px;
+}
+.edit h1 {
+  font-size: 40px;
+}
+#top3 {
+  margin-left: 15%;
+}
+.notification {
+  background-color: white;
+  width: 55%;
+}
+.notification li {
+  font-size: 15px;
+  font-weight: 500;
+}
+.recover {
+  width: 55%;
+  background-color: white;
+}
+
+.para {
+  height: 1.4cm;
+  background-color: rgb(248, 248, 248);
+  margin: 5%;
+  border: 1.5px solid grey;
+  border-radius: 5px;
+}
+
+.manage {
+  background-color: white;
+  width: 55%;
+}
+.privacy {
+  background-color: white;
+  width: 55%;
+}
+.privacy p {
+  margin-left: 5%;
+  margin-right: 3%;
+}
+.privacy p li {
+  font-size: 15px;
+  font-weight: 600;
+  list-style: disc;
+}
+.privacy p {
+  font-size: 15px;
+  font-weight: 600;
+}
+.privacy ul {
+  margin: 0;
+}
+.privacy h1 {
+  margin-left: 5%;
+  font-size: 40px;
+}
+.recipt {
+  width: 55%;
+  background-color: white;
+}
+.para1 {
+  height: 1.4cm;
+  background-color: rgb(248, 248, 248);
+  margin: 5%;
+  border: 1.5px solid grey;
+  border-radius: 5px;
+}
+.facebook {
+  background-color: white;
+  box-shadow: 10px 10px 10px 10px black;
+  border-radius: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.ads {
+  background-color: white;
+  box-shadow: 10px 10px 10px 10px black;
+  border-radius: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.acc li {
+  list-style: disc;
+  font-size: 15px;
+  padding: 0%;
+}
+.flexit {
+  display: flex;
+}
+#request {
+  background-color: rgb(30, 215, 96);
+  width: 6cm;
+  height: 1.5cm;
+  margin-left: 35%;
+  margin-top: 10%;
+  border-radius: 25px;
+  font-size: 20px;
+}
+#request:hover {
+  transform: scale(1.1);
+}
