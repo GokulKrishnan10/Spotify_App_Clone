@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send(`<h1>Server for Spotify running on port ${PORT}</h1>`);
+  res.send(`<h1>Server running on port ${PORT}</h1>`);
 });
 
 app.get("/images/:id", (req, res) => {
