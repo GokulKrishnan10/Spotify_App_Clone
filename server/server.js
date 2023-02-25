@@ -84,10 +84,11 @@ app.post("/loggedin", (req, res) => {
           .then((isMatch) => {
             if (isMatch) {
               const token = jwt.sign(
-                data,
+                JSON.parse(JSON.stringify(data[0])),
                 "678342687jhdshgdvssxdf8789kj8yhjhj"
               );
-              res.json({ data, token });
+              const obj = data[0];
+              res.json({ obj, token });
             } else {
               res.status(500).send("<h1>User Does not exist</h1>");
             }
@@ -99,18 +100,28 @@ app.post("/loggedin", (req, res) => {
       res.send(error);
     });
 });
-app.get("/protected", authenticate);
-function authenticate(res, req, next) {
-  const token = "";
+app.get("/protected", authenticate, (req, res) => {
   const decode = jwt.verify(
-    token,
+    req.token,
     "678342687jhdshgdvssxdf8789kj8yhjhj",
     function (error, decoded) {
+      console.log("Decoded is ", decoded);
       if (error) {
         res.status(404).send("No User");
       } else {
-        res.send(decoded);
+        res.status(200).send(decoded);
       }
     }
   );
+});
+function authenticate(req, res, next) {
+  const Bearer = req.headers.authorization;
+  console.log("Token is ", Bearer);
+  if (typeof Bearer !== "undefined") {
+    const token = Bearer.split(" ");
+    req.token = token[1];
+    next();
+  } else {
+    res.status(404).send("<h1>Fatal Error</h1>");
+  }
 }

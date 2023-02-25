@@ -1,8 +1,25 @@
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 function User() {
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user")).mail;
+  const history = useNavigate();
+  function getAuth() {
+    axios
+      .get("http://localhost:4000/protected", {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).Token
+          }`,
+        },
+      })
+      .then((response) => {
+        history("/profile");
+      })
+      .catch((error) => console.log("error is ", error));
+  }
+
   return (
     <ul
       className="hover-user"
@@ -14,13 +31,12 @@ function User() {
         marginBottom: "0.6cm",
         marginTop: "0.3cm",
       }}
+      onClick={getAuth}
     >
       <li style={{ marginLeft: "0" }}>
         <FontAwesomeIcon icon={faUser} />
       </li>
-      <Link to="/profile">
-        <li style={{ fontSize: "15px" }}>{user}</li>
-      </Link>
+      <li style={{ fontSize: "15px" }}>{user}</li>
     </ul>
   );
 }

@@ -9,7 +9,6 @@ import { useState } from "react";
 import SearchBar from "./searchbar";
 import Search from "./search";
 import Liked from "./Liked";
-import Songs from "./Songs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeepSearch from "./deepSearch";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
@@ -18,8 +17,12 @@ import User from "./user";
 function Spotify() {
   const [name, setName] = useState([]);
   const [select, setSelect] = useState("User");
-  const user = localStorage.getItem("user");
-  console.log("User is --------------------", user);
+  const user = JSON.parse(localStorage.getItem("user")).mail;
+  console.log(
+    "User is --------------------",
+    user,
+    JSON.parse(localStorage.getItem("user"))
+  );
   function addPlaylist() {
     setName([...name, "My Playlist #" + (name.length + 1)]);
   }
@@ -103,6 +106,7 @@ function Spotify() {
               backgroundColor: "rgb(24, 24, 24)",
               marginBottom: "2%",
             }}
+            onClick={{}}
           >
             <h5 style={{ color: "white" }}>{user}</h5>
           </div>
@@ -114,4 +118,3 @@ function Spotify() {
   );
 }
 export default Spotify;
-//rgb(24, 24, 24)

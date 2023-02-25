@@ -12,12 +12,20 @@ function LogIn() {
     console.log(data);
     axios
       .post("http://localhost:4000/loggedin", data)
+      .then((response) => response.data)
       .then((response) => {
-        console.log("response is", response);
-        localStorage.setItem("user", response.data[0].email);
-        console.log("Successfully logged in ", response.data[0].email);
+        console.log("Data is ", response.obj);
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            mail: response.obj.email,
+            Token: response.token,
+          })
+        );
+        console.log("Successfully logged in ", response.obj.email);
+        console.log("Token is ", response.token);
         console.log(
-          localStorage.getItem("user"),
+          JSON.parse(localStorage.getItem("user")),
           "Good and not good is ",
           localStorage.getItem("no")
         );
