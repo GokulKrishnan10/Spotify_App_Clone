@@ -465,3 +465,58 @@ progress {
     #1f0903
   );
 }
+.user input {
+  width: 10cm;
+  font-size: 17px;
+  border: none;
+}
+
+.user input:focus {
+  outline: none;
+}
+.options {
+  height: 2.5cm;
+  width: 5cm;
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 80%;
+  margin-top: 5%;
+  display: none;
+  box-shadow: 10px 10px 10px 10px black;
+  align-items: center;
+  color: black;
+}
+.free-sign {
+  position: fixed;
+  width: 100%;
+  height: 2cm;
+  font-size: 20px;
+  bottom: 0cm;
+  display: flex;
+  background-image: linear-gradient(
+    to left,
+    #6186e3,
+    #7576d8,
+    #8763ca,
+    #974fb7,
+    #a336a1
+  );
+}
+.free-sign ul {
+  margin-top: 5%;
+  margin-top: 0cm;
+  list-style-type: disc;
+}
+.free-sign li {
+  padding: 0;
+  font-size: 15px;
+  color: white;
+}
+.free-sign button {
+  width: 4cm;
+  background-color: white;
+  height: 1.3cm;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 30px;
+}

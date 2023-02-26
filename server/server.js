@@ -1,10 +1,10 @@
 const express = require("express");
 const app = express();
-require("./connect");
 const User = require("./user");
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const image = require("./image_upload/image");
+const router = require("./router");
 require("dotenv").config();
 const PORT = process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,6 +15,7 @@ app.listen(PORT, () => {
   console.log(`SERVER RUNNING ON PORT ${PORT}`);
 });
 app.use(express.json());
+app.use("/protected", router);
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -48,7 +49,6 @@ app.post("/submitted", (req, res) => {
     .then((hashedpassword) => hashedpassword)
     .then((data) => {
       const newUser = new User({
-        User: "",
         email: forms?.mail,
         password: data,
         dob: forms?.birthday,
@@ -100,28 +100,3 @@ app.post("/loggedin", (req, res) => {
       res.send(error);
     });
 });
-app.get("/protected", authenticate, (req, res) => {
-  const decode = jwt.verify(
-    req.token,
-    "678342687jhdshgdvssxdf8789kj8yhjhj",
-    function (error, decoded) {
-      console.log("Decoded is ", decoded);
-      if (error) {
-        res.status(404).send("No User");
-      } else {
-        res.status(200).send(decoded);
-      }
-    }
-  );
-});
-function authenticate(req, res, next) {
-  const Bearer = req.headers.authorization;
-  console.log("Token is ", Bearer);
-  if (typeof Bearer !== "undefined") {
-    const token = Bearer.split(" ");
-    req.token = token[1];
-    next();
-  } else {
-    res.status(404).send("<h1>Fatal Error</h1>");
-  }
-}
