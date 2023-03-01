@@ -13,17 +13,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DeepSearch from "./deepSearch";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import NoLogin from "./noLogin";
+import Songs from "./Songs";
+import SignupFree from "./signupfree";
 import User from "./user";
+import Hang from "./hang";
 function Spotify() {
   const [name, setName] = useState([]);
   const [select, setSelect] = useState("User");
-  const user = JSON.parse(localStorage.getItem("user")).mail;
-  console.log(
-    "User is --------------------",
-    user,
-    JSON.parse(localStorage.getItem("user"))
-  );
+  const user = localStorage.getItem("user");
+  // if (user !== null && user !== undefined) {
+  //   document.querySelector(".nav-division").style.backgroundColor =
+  //     "rgb(29,29,29)";
+  // }
+  document.addEventListener("click", (event) => {
+    if (event.srcElement.id !== "play1" && event.srcElement.id !== "loved") {
+      console.log("Hanging is", document.querySelector(".hang"));
+      const hang = document.querySelector(".hang");
+      if (hang !== null) document.querySelector(".hang").style.display = "none";
+    }
+  });
   function addPlaylist() {
+    if (user === null || user === undefined) return;
     setName([...name, "My Playlist #" + (name.length + 1)]);
   }
   return (
@@ -62,10 +72,32 @@ function Spotify() {
             </li>
             <br />
 
-            <li onClick={addPlaylist}>
+            <li
+              id="play1"
+              onClick={
+                user === null || user === undefined
+                  ? () => {
+                      document.querySelector(".hang").style.display = "block";
+                    }
+                  : () => {
+                      addPlaylist();
+                    }
+              }
+            >
               <AiFillPlusSquare /> Create Playlist
             </li>
-            <li onClick={() => setSelect("Liked")}>
+            <li
+              id="loved"
+              onClick={
+                user === null || user === undefined
+                  ? () => {
+                      document.querySelector(".hang").style.display = "block";
+                    }
+                  : () => {
+                      setSelect("Liked");
+                    }
+              }
+            >
               <AiFillHeart style={{ color: "red" }} /> Liked Songs
             </li>
           </ul>
@@ -85,17 +117,32 @@ function Spotify() {
         <div className="row">
           <div className="nav-division">
             {select === "Search" && <SearchBar />}
-            {user !== null && user !== "undefined" ? <User /> : <NoLogin />}
+            {user !== null && typeof user !== "undefined" ? (
+              <User />
+            ) : (
+              <NoLogin />
+            )}
           </div>
+          <Hang alert="Create Playlist" />
+
           {(select === "User" && (
-            <Original logg={() => setSelect("deepSearch")} />
+            <Original
+              logg={() => setSelect("deepSearch")}
+              display={() => setSelect("Songs")}
+            />
           )) ||
             (select === "deepSearch" && <DeepSearch />) ||
             (select.includes("Playlist") && <Playlist number={select} />) ||
             (select === "Search" && <Search />) ||
-            (select === "Liked" && <Liked />)}
+            (select === "Liked" && <Liked />) ||
+            (select === "Songs" && <Songs />)}
         </div>
-        <Play />
+        {user !== null && typeof user !== "undefined" ? (
+          <Play />
+        ) : (
+          <SignupFree />
+        )}
+
         {user != null ? (
           <div
             className="hidden-name"
@@ -111,7 +158,7 @@ function Spotify() {
             <h5 style={{ color: "white" }}>{user}</h5>
           </div>
         ) : (
-          "No"
+          ""
         )}
       </div>
     </>
