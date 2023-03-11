@@ -17,18 +17,29 @@ import Songs from "./Songs";
 import SignupFree from "./signupfree";
 import User from "./user";
 import Hang from "./hang";
+import Bar from "./Bar";
 function Spotify() {
   const [name, setName] = useState([]);
   const [select, setSelect] = useState("User");
   const user = localStorage.getItem("user");
-  // if (user !== null && user !== undefined) {
-  //   document.querySelector(".nav-division").style.backgroundColor =
-  //     "rgb(29,29,29)";
-  // }
+  // document.getElementById(".side-div").style.height = divHeight;
   document.addEventListener("click", (event) => {
-    if (event.srcElement.id !== "play1" && event.srcElement.id !== "loved") {
-      console.log("Hanging is", document.querySelector(".hang"));
+    if (
+      event.srcElement.id !== "play1" &&
+      event.srcElement.id !== "loved" &&
+      event.srcElement.id !== "hang" &&
+      event.srcElement.id !== "outer-edit" &&
+      event.srcElement.id !== "second" &&
+      event.srcElement.id !== "inner-edit"
+    ) {
+      console.log("Hanging is", event.target);
       const hang = document.querySelector(".hang");
+      // console.log("Outer Edit is ", document.querySelector(".outer-edit"));
+      const outer = document.querySelector(".outer-edit");
+      if (outer !== null) {
+        document.querySelector(".outer-edit").style.display = "none";
+      }
+
       if (hang !== null) document.querySelector(".hang").style.display = "none";
     }
   });
@@ -116,7 +127,9 @@ function Spotify() {
 
         <div className="row">
           <div className="nav-division">
-            {select === "Search" && <SearchBar />}
+            {(select === "Search" || select === "Artists") && (
+              <SearchBar dispArt={() => setSelect("Artists")} />
+            )}
             {user !== null && typeof user !== "undefined" ? (
               <User />
             ) : (
@@ -135,7 +148,8 @@ function Spotify() {
             (select.includes("Playlist") && <Playlist number={select} />) ||
             (select === "Search" && <Search />) ||
             (select === "Liked" && <Liked />) ||
-            (select === "Songs" && <Songs />)}
+            (select === "Songs" && <Songs />) ||
+            (select === "Artists" && <Bar />)}
         </div>
         {user !== null && typeof user !== "undefined" ? (
           <Play />

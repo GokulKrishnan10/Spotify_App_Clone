@@ -1,4 +1,4 @@
-function Edit({ onCancel }) {
+function Edit({ onCancel, data }) {
   const months = [
     "January",
     "Febrauary",
@@ -20,6 +20,7 @@ function Edit({ onCancel }) {
     "Other",
     "Non-binary",
   ];
+  // console.log("response is ", data);
   return (
     <>
       <div className="edit">
@@ -27,27 +28,35 @@ function Edit({ onCancel }) {
         <br />
         <label>Email</label>
         <br />
-        <input type="text" />
+        <input type="text" value={data.email} />
         <br />
         <br />
         <label>Gender</label>
         <br />
         <select id="gender">
-          {genders.map((element) => (
-            <option>{element}</option>
-          ))}
+          {genders.map((element) =>
+            data.gender === element ? (
+              <option selected>{element}</option>
+            ) : (
+              <option>{element}</option>
+            )
+          )}
         </select>
         <br />
         <br />
         <label>Date of Birth</label>
         <br />
-        <input type="text" id="year" />
+        <input type="text" id="year" value={data.dob.split("-")[0]} />
         <select id="month">
-          {months.map((element) => (
-            <option>{element}</option>
-          ))}
+          {months.map((element, index) =>
+            index === parseInt(data.dob.split("-")[1]) ? (
+              <option selected>{element}</option>
+            ) : (
+              <option>{element}</option>
+            )
+          )}
         </select>
-        <input type="text" id="date" />
+        <input type="text" id="date" value={data.dob.split("-")[2]} />
         <br />
         <br />
         <label>Country or region</label>

@@ -3,6 +3,13 @@ html {
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(0, 0, 0);
+  padding: 0;
+}
 @media only screen and (max-width: 1200px) {
   .top-playlist #second {
     font-size: 30px;
@@ -28,7 +35,11 @@ body {
   min-width: 9cm;
   color: white;
   background-color: rgb(0, 0, 0);
-  height: 42cm;
+  /* height: 100%; */
+  /* height: 42cm; */
+}
+.side-div li {
+  font-size: 17px;
 }
 #top {
   color: white;
@@ -42,7 +53,9 @@ li {
   font-size: 20px;
   padding: 10px;
 }
-
+button:hover {
+  cursor: pointer;
+}
 .nav-division {
   display: flex;
   background-color: rgb(16, 16, 16);
@@ -74,7 +87,7 @@ i {
   flex: 80%;
   display: flex;
   padding: 5px;
-  height: 9cm;
+  height: 8cm;
   flex-wrap: wrap;
   overflow: hidden;
 }
@@ -114,7 +127,9 @@ i {
 
 .nav-division ul {
   margin-top: 1%;
-  margin-right: 20px;
+  /* margin-left: 25cm; */
+  margin-right: 1px;
+  /* margin-left: 100%; */
   display: inline-flex;
   /* justify-content: space-around; */
 }
@@ -341,7 +356,7 @@ progress {
   background-color: rgb(40, 40, 40);
   width: 6cm;
   height: 6cm;
-  box-shadow: 7px 7px 20px 20px black;
+  box-shadow: 7px 7px 8px 8px black;
   margin-top: 3cm;
   margin-left: 2cm;
 }
@@ -519,4 +534,51 @@ progress {
   font-size: 15px;
   font-weight: 700;
   border-radius: 30px;
+}
+.hang {
+  background-color: blue;
+  width: 8cm;
+  height: 4cm;
+  border-radius: 15px;
+  position: fixed;
+  margin-left: 0cm;
+  margin-top: 7cm;
+  display: none;
+}
+.hang button {
+  background-color: white;
+  width: 2cm;
+  height: 1cm;
+  border-radius: 25px;
+}
+
+.outerplay input:focus {
+  outline: none;
+}
+.outer-edit {
+  position: fixed;
+  margin-left: 2cm;
+  margin-top: 3cm;
+  width: 15cm;
+  border-radius: 30px;
+  height: 10.5cm;
+  background-color: rgb(40, 40, 40);
+}
+.inner-edit {
+  display: flex;
+  flex-direction: row;
+}
+.inner-edit input {
+  width: 7cm;
+  border: none;
+  font-size: 15px;
+  background-color: rgb(62, 62, 62);
+  border-radius: 7px;
+  color: white;
+}
+.second-in {
+  text-align: start;
+}
+.playlist-name:hover {
+  cursor: pointer;
 }

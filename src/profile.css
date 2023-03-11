@@ -1,13 +1,38 @@
-@media only screen and (max-width: 700px) {
-  .side-div1 li {
+/* @media only screen and (max-width: 700px) {
+  .side-div1 {
     display: none;
+  }
+  .user {
+    width: 20cm !important;
+    margin-right: 0% !important;
+  }
+  .user,
+  .Password,
+  .privacy,
+  .notification,
+  .recover,
+  .manage,
+  .edit,
+  .recipt {
+    width: 20cm !important;
+    margin-right: 0% !important;
   }
   #top3 {
     display: none;
   }
+} */
+@media only screen and (max-width: 700px) {
+  .side-div1 {
+    display: none;
+    margin-left: 0% !important;
+    width: 0% !important;
+  }
+  .user {
+    width: 80% !important;
+    margin-right: 0% !important;
+  }
 }
-
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   .flexit {
     flex-direction: column;
   }
@@ -15,15 +40,22 @@
     display: none;
   }
   .side-div1 {
-    margin-left: 0%;
-    width: 20%;
+    margin-left: 0% !important;
+    width: 30% !important;
   }
   .side-div1 li {
     font-size: 16px;
   }
-  .user {
-    width: 100%;
-    margin-right: 0%;
+  .user,
+  .Password,
+  .privacy,
+  .notification,
+  .recover,
+  .manage,
+  .edit,
+  .recipt {
+    width: 70% !important;
+    margin-right: 0% !important;
   }
   #icon {
     display: none;
@@ -331,4 +363,23 @@ select option {
 }
 #request:hover {
   transform: scale(1.1);
+}
+.plan {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 90%;
+  border: 3px solid rgb(179, 179, 179);
+  border-radius: 7px;
+  /* background-color: rgb(179, 179, 179); */
+  box-shadow: 6px 6px 6px 6px grey;
+  padding: 0;
+  height: 9cm;
+}
+.your-plan {
+  /* margin: 0; */
+  margin-top: 0;
+  background-color: rgb(179, 179, 179);
+  height: 5cm;
 }

@@ -1,5 +1,5 @@
 import "./profile.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Account from "./account";
 import Password from "./Password";
 import Privacy from "./Privacy";
@@ -14,31 +14,38 @@ import Recipt from "./recipts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import axios from "axios";
+import Options from "./options";
 
 function Profile() {
   const [select, changeSelect] = useState("User");
   function displaySome() {
-    const disp = document.createElement("div");
-    console.log("HEllo there it is pressed");
-    disp.style.height = "2.5cm";
-    disp.style.width = "5cm";
-    disp.style.backgroundColor = "white";
-    disp.style.borderRadius = "5px";
-    disp.style.borderColor = "black";
-    disp.style.marginRight = "12%";
-    disp.style.marginTop = "5%";
-    disp.style.position = "fixed";
-    disp.innerHTML = `<ul>
-    <li>Account</li>
-    <li>Logout</li>
-     </ul>`;
-    disp.style.alignItems = "center";
-    disp.style.color = "black";
-    document.querySelector(".nav-div").appendChild(disp);
+    console.log("Clicked more than once");
+    document.querySelector(".options").style.display = "fixed";
+    console.log(document.querySelector(".options").style);
   }
+  const token = localStorage.getItem("user");
+  const [data, setData] = useState({});
+  function EditProfile() {
+    console.log("Token is", token);
+    axios
+      .get("http://localhost:4000/protected", {
+        headers: {
+          Authorization: `Bearer ${JSON.parse(token).Token}`,
+        },
+      })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => console.error(error));
+  }
+  useEffect(EditProfile, []);
+  //  console.log("data is ", data);
   return (
     <div style={{ backgroundColor: "rgb(27,38,58)" }}>
       <div className="nav-div">
+        <Options />
+
         <div
           style={{ display: "flex", flexDirection: "row", marginLeft: "13%" }}
         >
@@ -60,9 +67,8 @@ function Profile() {
           <li>Download</li>
           <li>|</li>
           <li>
-            {/* <AccountCircleIcon style={{ height: "1cm", width: "1cm" }} /> */}
             <span
-              style={{ marginLeft: "7%", marginTop: "7%" }}
+              style={{ marginLeft: "7%", marginTop: "7%", display: "flex" }}
               onClick={displaySome}
             >
               <AccountCircleIcon />
@@ -128,7 +134,7 @@ function Profile() {
         ) : select === "Password" ? (
           <Password onCancel={() => changeSelect("User")} />
         ) : select === "Edit" ? (
-          <Edit onCancel={() => changeSelect("User")} />
+          <Edit onCancel={() => changeSelect("User")} data={data} />
         ) : select === "Privacy" ? (
           <Privacy />
         ) : select === "Notification" ? (

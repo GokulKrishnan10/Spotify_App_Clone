@@ -4,7 +4,11 @@ function NoLogin() {
     <ul>
       <li>
         <Link to="signup">
-          <button>Sign Up</button>
+          <button
+            style={{ backgroundColor: "rgb(16, 16, 16)", color: "white" }}
+          >
+            Sign Up
+          </button>
         </Link>
       </li>
       <li>

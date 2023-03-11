@@ -1,6 +1,6 @@
 import "./search.css";
 import { BiSearch } from "react-icons/bi";
-function SearchBar() {
+function SearchBar({ dispArt }) {
   return (
     <>
       <div>
@@ -15,7 +15,12 @@ function SearchBar() {
             }}
           />
           <input
-            style={{ fontSize: "15px", textAlign: "center" }}
+            style={{
+              fontSize: "15px",
+              textAlign: "center",
+              borderRadius: "20px",
+            }}
+            onInput={dispArt}
             type="text"
             placeholder="what you want to hear?"
           />

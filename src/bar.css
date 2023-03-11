@@ -30,7 +30,7 @@
   height: 30cm;
   width: 100%;
 }
-li {
+.searchbar li {
   font-size: 20px;
   color: white;
 }

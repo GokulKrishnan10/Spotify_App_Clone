@@ -40,18 +40,23 @@ Audiobooks from authors you follow or might like`,
       <ul>
         {statements.map((element) => (
           <>
-            <li style={{ whiteSpace: "pre-line", display: "inline-block" }}>
+            <li
+              style={{
+                whiteSpace: "pre-line",
+                display: "inline-block",
+                float: "left",
+              }}
+            >
               {element}
             </li>
             <input
               style={{
                 width: "15px",
                 height: "15px",
-                marginTop: "4%",
-                display: "inline-block",
-                float: "right",
+                marginTop: "-2%",
+                float: "left",
                 accentColor: "green",
-                marginRight: "19%",
+                marginLeft: "70%",
               }}
               type="checkbox"
               checked
@@ -60,11 +65,10 @@ Audiobooks from authors you follow or might like`,
               style={{
                 width: "15px",
                 height: "15px",
-                marginTop: "4%",
+                marginTop: "-2%",
+                float: "left",
                 accentColor: "green",
-                display: "inline-block",
-                float: "right",
-                marginRight: "4%",
+                marginLeft: "7.5%",
               }}
               type="checkbox"
             />
@@ -73,6 +77,9 @@ Audiobooks from authors you follow or might like`,
           </>
         ))}
       </ul>
+      <br />
+      <br />
+      <br />
       <button className="cancel" onClick={onCancel}>
         Cancel
       </button>

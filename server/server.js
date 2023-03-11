@@ -67,7 +67,6 @@ app.post("/submitted", (req, res) => {
 
     .catch((error) => res.send(error));
 });
-
 app.post("/loggedin", (req, res) => {
   var forms = req.body;
   const newUser = {

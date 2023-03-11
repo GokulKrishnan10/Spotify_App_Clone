@@ -1,15 +1,17 @@
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 function LogIn() {
+  const history = useNavigate();
   function onLogIn(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formValues = Object.fromEntries(formData);
     const data = Object.assign({}, formValues);
     console.log(data);
+    console.log("Logging in");
     axios
       .post("http://localhost:4000/loggedin", data)
       .then((response) => response.data)
@@ -29,8 +31,10 @@ function LogIn() {
           "Good and not good is ",
           localStorage.getItem("no")
         );
+        history("/");
       })
       .catch((error) => {
+        window.alert("No user exists");
         console.log("Error is ", error);
       });
   }

@@ -3,40 +3,6 @@ import axios from "axios";
 import Node from "./node";
 
 function DeepSearch() {
-  //   let array = [];
-  // const [array, setArray] = useState([]);
-  // const [loaded, setLoaded] = useState(false);
-  // let n = 0,
-  //   load = 0;
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:4000/getimages")
-  //     .then((res) => res.data)
-  //     .then((singers) => {
-  //       if (!loaded) {
-  //         singers.forEach((element) => {
-  //           // console.log(element, singers.length);
-  //           axios({
-  //             method: "get",
-  //             url: `http://localhost:4000/images/${element._id}`,
-  //             responseType: "blob",
-  //           })
-  //             .then((image) => {
-  //               const imgurl = URL.createObjectURL(new Blob([image.data]));
-  //               setArray((prevArray) =>
-  //                 prevArray.concat(<Node img={imgurl} />)
-  //               );
-  //               load++;
-  //               console.log("count is ", load);
-  //             })
-  //             .catch((error) => console.log(error));
-  //         });
-  //       }
-
-  //       setLoaded(true);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, [loaded]);
   const [array, setArray] = useState([]);
 
   const [loaded, setLoad] = useState(false);

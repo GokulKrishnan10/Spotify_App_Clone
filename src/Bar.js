@@ -1,7 +1,7 @@
 import "./bar.css";
 function Bar() {
   return (
-    <div style={{ backgroundColor: "rgb(18, 18, 18)" }}>
+    <div style={{ backgroundColor: "rgb(18, 18, 18)" }} className="searchbar">
       <div className="wrap">
         <div style={{ marginLeft: "5%", backgroundColor: " rgb(18, 18, 18)" }}>
           <h2 style={{ color: "white" }}>Top Result</h2>
