@@ -24,7 +24,7 @@ function Playlist({ number }) {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic MjVlMTI1MGUyNTMzNGQzNmFlYmZmODA5NDJkODI3MzU6OGUxN2RiNDg4ZDg4NGYxNzhhYTFiYTI4YTRiZTA3NmU=`,
+            Authorization: `Basic KEY`,
           },
         }
       )
