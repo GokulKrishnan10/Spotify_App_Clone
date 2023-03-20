@@ -83,7 +83,8 @@ app.post("/loggedin", (req, res) => {
           .then((isMatch) => {
             if (isMatch) {
               const token = jwt.sign(
-                JSON.parse(JSON.stringify(data[0])),
+                //JSON.parse(JSON.stringify(data[0])),
+                data[0],
                 "678342687jhdshgdvssxdf8789kj8yhjhj"
               );
               const obj = data[0];

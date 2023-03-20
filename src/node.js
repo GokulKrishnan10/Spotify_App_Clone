@@ -23,6 +23,7 @@ function Node({ img, disp }) {
           width: "5.5cm",
           height: "4.5cm",
           borderRadius: "20px",
+          boxShadow: "1px 1px 1px 1px white",
         }}
       />
       <ul style={{ marginTop: "0", marginLeft: "0", padding: "0" }}>

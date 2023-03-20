@@ -3,7 +3,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 function User() {
-  console.log(localStorage.getItem("user"));
+  //console.log(localStorage.getItem("user"));
   const user = localStorage.getItem("user");
   const history = useNavigate();
   function getAuth() {

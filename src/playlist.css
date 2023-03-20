@@ -1,0 +1,22 @@
+.song-display {
+  font-size: 15px;
+  color: white;
+  width: 15cm;
+  background-color: skyblue;
+  margin-top: 3px;
+  border-radius: 5px;
+}
+.lists {
+  margin-left: 2cm;
+  margin-top: 0.6cm;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+.down-playlist {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(18, 18, 18);
+  width: 100%;
+  min-height: 15cm;
+}

@@ -40,14 +40,14 @@ function LogIn() {
   }
   return (
     <div
+      className="login-container"
       style={{
         backgroundColor: "white",
       }}
     >
       <div className="login">
-        {/* <h1 onClick="onClick()">Spotify®</h1> */}
         <div
-          style={{ display: "flex", flexDirection: "row", marginLeft: "30%" }}
+          style={{ display: "flex", flexDirection: "row", marginLeft: "2cm" }}
         >
           <FontAwesomeIcon
             icon={faSpotify}
@@ -78,12 +78,16 @@ function LogIn() {
         <br />
         <br />
         <h5>
-          <span>Or</span>
+          <span>OR</span>
         </h5>
 
         <form action="loggedin" method="post" onSubmit={onLogIn}>
+          <label>Email address or username</label>
+          <br />
           <input type="text" id="mail" name="mail" placeholder="Enter mail" />
           <br />
+          <br />
+          <label>Password</label>
           <br />
           <input
             type="password"
@@ -97,14 +101,16 @@ function LogIn() {
         </form>
         <hr />
         <h4>
-          Don't have an account?{" "}
-          <Link
-            to="/signup"
-            style={{ color: "purple", textDecoration: "underline" }}
-          >
-            Sign Up
-          </Link>
+          Don't have an account? <br />
         </h4>
+        <Link
+          to="/signup"
+          style={{ color: "purple", textDecoration: "underline" }}
+        >
+          <button className="no-account">SIGN UP FOR SPOTIFY</button>
+        </Link>
+        <br />
+        <br />
       </div>
     </div>
   );

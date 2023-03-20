@@ -18,11 +18,17 @@ import SignupFree from "./signupfree";
 import User from "./user";
 import Hang from "./hang";
 import Bar from "./Bar";
+import Language from "./Lang";
+import { useSelector, useDispatch } from "react-redux";
+import { setselect } from "./actions";
+import Dark from "./dark";
 function Spotify() {
+  console.log(localStorage.getItem("user"));
+  const select = useSelector((state) => state.select);
+  const dispatch = useDispatch();
+  setselect({});
   const [name, setName] = useState([]);
-  const [select, setSelect] = useState("User");
   const user = localStorage.getItem("user");
-  // document.getElementById(".side-div").style.height = divHeight;
   document.addEventListener("click", (event) => {
     if (
       event.srcElement.id !== "play1" &&
@@ -32,15 +38,18 @@ function Spotify() {
       event.srcElement.id !== "second" &&
       event.srcElement.id !== "inner-edit"
     ) {
-      console.log("Hanging is", event.target);
       const hang = document.querySelector(".hang");
-      // console.log("Outer Edit is ", document.querySelector(".outer-edit"));
+
       const outer = document.querySelector(".outer-edit");
       if (outer !== null) {
         document.querySelector(".outer-edit").style.display = "none";
+        document.querySelector(".all-dark").style.display = "none";
       }
 
-      if (hang !== null) document.querySelector(".hang").style.display = "none";
+      if (hang !== null) {
+        document.querySelector(".all-dark").style.display = "none";
+        document.querySelector(".hang").style.display = "none";
+      }
     }
   });
   function addPlaylist() {
@@ -50,12 +59,15 @@ function Spotify() {
   return (
     <>
       <div
+        className="dark"
         style={{
           display: "flex",
           backgroundColor: " rgb(29, 29, 29)",
           width: "100%",
+          height: "100%",
         }}
       >
+        <Dark />
         <div className="side-div" style={{ marginTop: "0" }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <FontAwesomeIcon
@@ -72,10 +84,10 @@ function Spotify() {
           </div>
 
           <ul>
-            <li onClick={() => setSelect("User")}>
+            <li onClick={() => dispatch(setselect("User"))}>
               <AiFillHome /> Home
             </li>
-            <li onClick={() => setSelect("Search")}>
+            <li onClick={() => dispatch(setselect("Search"))}>
               <BsSearch /> Search
             </li>
             <li>
@@ -105,7 +117,7 @@ function Spotify() {
                       document.querySelector(".hang").style.display = "block";
                     }
                   : () => {
-                      setSelect("Liked");
+                      dispatch(setselect("Liked"));
                     }
               }
             >
@@ -117,7 +129,7 @@ function Spotify() {
             {name.map((element) => (
               <li
                 style={{ color: "rgb(179,179,179)", fontSize: "15px" }}
-                onClick={() => setSelect(element)}
+                onClick={() => dispatch(setselect(element))}
               >
                 {element}
               </li>
@@ -127,9 +139,7 @@ function Spotify() {
 
         <div className="row">
           <div className="nav-division">
-            {(select === "Search" || select === "Artists") && (
-              <SearchBar dispArt={() => setSelect("Artists")} />
-            )}
+            {(select === "Search" || select === "Artists") && <SearchBar />}
             {user !== null && typeof user !== "undefined" ? (
               <User />
             ) : (
@@ -140,8 +150,8 @@ function Spotify() {
 
           {(select === "User" && (
             <Original
-              logg={() => setSelect("deepSearch")}
-              display={() => setSelect("Songs")}
+              logg={() => dispatch(setselect("deepSearch"))}
+              display={() => dispatch(setselect("Songs"))}
             />
           )) ||
             (select === "deepSearch" && <DeepSearch />) ||
@@ -149,7 +159,8 @@ function Spotify() {
             (select === "Search" && <Search />) ||
             (select === "Liked" && <Liked />) ||
             (select === "Songs" && <Songs />) ||
-            (select === "Artists" && <Bar />)}
+            (select === "Artists" && <Bar />) ||
+            (select === "Language" && <Language />)}
         </div>
         {user !== null && typeof user !== "undefined" ? (
           <Play />

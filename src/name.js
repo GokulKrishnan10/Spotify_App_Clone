@@ -1,59 +1,41 @@
 import { BsMusicNoteBeamed } from "react-icons/bs";
+import "./name.css";
 function Name() {
+  function addName(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const formValues = Object.fromEntries(formData);
+    const data = Object.assign({}, formValues);
+    console.log("Data name is ", data.name);
+  }
   return (
     <div className="outer-edit" id="outer-edit">
-      <h3 style={{ marginLeft: "6%", color: "white" }}>Edit details</h3>
-      <br />
+      <h1 className="heading-1">Edit details</h1>
       <div className="inner-edit">
-        <div
-          id="inner-edit"
-          style={{
-            width: "5cm",
-            height: "5cm",
-            boxShadow: "5px 5px 5px 5px black",
-            marginLeft: "6%",
-          }}
-        >
-          <BsMusicNoteBeamed
-            style={{
-              marginTop: "26%",
-              marginLeft: "20%",
-              color: "rgb(127,127,127)",
-              width: "90px",
-              height: "90px",
-            }}
-          />
+        <div className="icon-class" id="inner-edit">
+          <BsMusicNoteBeamed id="inner-edit" className="icon" />
         </div>
 
-        <ul id="inner-edit" style={{ marginTop: "0" }}>
-          <input id="inner-edit" type="text" />
-          <br />
-          <br />
+        <form id="inner-edit" className="form-edit" onSubmit={addName}>
           <input
+            autoComplete="off"
+            type="text"
+            id="inner-edit"
+            name="name"
+            style={{ height: "0.5cm", width: "6.2cm" }}
+          />
+          <br />
+          <textarea
             className="second-in"
             id="inner-edit"
-            type="text"
-            style={{ height: "3.5cm" }}
+            value={"Add an optional description"}
           />
-        </ul>
+          <br />
+
+          <button className="save-button">Save</button>
+        </form>
       </div>
-      <button
-        style={{
-          right: "0px",
-          width: "4cm",
-          height: "1.2cm",
-          marginLeft: "70%",
-          borderRadius: "50px",
-          fontSize: "15px",
-          fontWeight: "867",
-        }}
-      >
-        Save
-      </button>
-      <p
-        id="inner-edit"
-        style={{ color: "white", fontSize: "12px", marginLeft: "4%" }}
-      >
+      <p id="inner-edit" className="condition">
         By proceeding, you agree to give Spotify access to the image you choose
         to upload. Please make sure you have the right to upload the image.
       </p>

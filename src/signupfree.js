@@ -10,7 +10,13 @@ function SignupFree() {
         </li>
       </ul>
       <Link to="/signup">
-        <button style={{ marginLeft: "410%", marginTop: "8%" }}>
+        <button
+          style={{
+            marginLeft: "410%",
+            marginTop: "8%",
+            fontFamily: '"Poppins", sans-serif',
+          }}
+        >
           Sign Up free
         </button>
       </Link>

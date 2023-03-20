@@ -36,7 +36,7 @@ function DeepSearch() {
       style={{
         flex: "80%",
         backgroundColor: "rgb(18,18,18)",
-        height: "40cm",
+        height: "100%",
         overflow: "hidden",
         // width: "100%",
         // display: "flex",

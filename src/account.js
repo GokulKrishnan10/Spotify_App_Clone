@@ -21,6 +21,8 @@ function Account({ onEdit }) {
     //     }
     //   )
     //   .then((response) => console.log("Gokul----------------", response));
+    //process.env.basic
+    console.log("Basic is ", process.env.basic);
     axios
       .post(
         "https://accounts.spotify.com/api/token",
@@ -28,7 +30,7 @@ function Account({ onEdit }) {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic ${process.env.basic}`,
+            Authorization: `Basic MjVlMTI1MGUyNTMzNGQzNmFlYmZmODA5NDJkODI3MzU6OGUxN2RiNDg4ZDg4NGYxNzhhYTFiYTI4YTRiZTA3NmU=`,
           },
         }
       )
@@ -40,7 +42,7 @@ function Account({ onEdit }) {
               Authorization: `Bearer ${response.data.access_token}`,
             },
             params: {
-              q: "A R rahman",
+              q: "shakira",
               type: "track",
             },
           })

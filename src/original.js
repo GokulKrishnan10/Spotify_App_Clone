@@ -42,6 +42,22 @@ function Original({ logg, display }) {
       <div className="collection1" style={{ color: "white", height: "5cm" }}>
         {}
       </div>
+      <h1>Focus</h1>
+      <div className="collection1" style={{ color: "white", height: "5cm" }}>
+        {}
+      </div>
+      <h1>Focus</h1>
+      <div className="collection1" style={{ color: "white", height: "5cm" }}>
+        {}
+      </div>
+      <h1>Focus</h1>
+      <div className="collection1" style={{ color: "white", height: "5cm" }}>
+        {}
+      </div>
+      <h1>Popular Artists</h1>
+      <div></div>
+      <h1>Popular albums</h1>
+      <div></div>
     </div>
   );
 }

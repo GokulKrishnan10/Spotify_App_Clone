@@ -7,7 +7,7 @@ function Songs() {
       style={{
         display: "flex",
         width: "100%",
-        height: "40cm",
+        height: "100%",
         backgroundImage:
           "linear-gradient(to top, #121212, #16141d, #181527, #1c1631, #1f173b);",
       }}

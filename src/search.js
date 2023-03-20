@@ -1,5 +1,8 @@
-function Search() {
+import { useSelector, useDispatch } from "react-redux";
+import { setselect } from "./actions";
+function Search({ changeSelect }) {
   let array = [];
+  const dispatch = useDispatch();
   const cssColors = [
     "red",
     "green",
@@ -32,28 +35,26 @@ function Search() {
     "steelblue",
     "mediumseagreen",
   ];
-
-  for (let i = 0; i < 30; i++) {
+  cssColors.forEach((element) => {
     array.push(
-      <>
-        <div
-          className="lang"
-          style={{
-            display: "flex",
-            backgroundColor: cssColors[i],
-            width: "6cm",
-            height: "6cm",
-            padding: "10x",
-            margin: "1%",
-            borderRadius: "10px",
-            color: "white",
-          }}
-        >
-          <h1>Tamil</h1>
-        </div>
-      </>
+      <div
+        className="lang"
+        style={{
+          display: "flex",
+          backgroundColor: element,
+          width: "6cm",
+          height: "6cm",
+          padding: "10x",
+          margin: "1%",
+          borderRadius: "10px",
+          color: "white",
+        }}
+        onClick={() => dispatch(setselect("Language"))}
+      >
+        <h1>Tamil</h1>
+      </div>
     );
-  }
+  });
   return (
     <div
       style={{

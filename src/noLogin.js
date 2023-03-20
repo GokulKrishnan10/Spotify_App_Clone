@@ -5,7 +5,11 @@ function NoLogin() {
       <li>
         <Link to="signup">
           <button
-            style={{ backgroundColor: "rgb(16, 16, 16)", color: "white" }}
+            style={{
+              backgroundColor: "rgb(16, 16, 16)",
+              color: "white",
+              fontFamily: '"Poppins", sans-serif',
+            }}
           >
             Sign Up
           </button>
@@ -13,7 +17,9 @@ function NoLogin() {
       </li>
       <li>
         <Link to="login">
-          <button>Log In</button>
+          <button style={{ fontFamily: '"Poppins", sans-serif' }}>
+            Log In
+          </button>
         </Link>
       </li>
     </ul>

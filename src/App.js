@@ -11,42 +11,10 @@ function App() {
     <GoogleOAuthProvider clientId="889525092335-q8fnc297secat91ura28bl9e5d7q067o.apps.googleusercontent.com">
       <Router>
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <Spotify />
-              </>
-            }
-          />
-          <Route
-            exact
-            path="/signup"
-            element={
-              <>
-                <SignUp />
-              </>
-            }
-          />
-          <Route
-            exact
-            path="/login"
-            element={
-              <>
-                <LogIn />
-              </>
-            }
-          />
-          <Route
-            exact
-            path="/profile"
-            element={
-              <>
-                <Profile />
-              </>
-            }
-          />
+          <Route exact path="/" element={<Spotify />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<LogIn />} />
+          <Route exact path="/profile" element={<Profile />} />
         </Routes>
       </Router>
     </GoogleOAuthProvider>

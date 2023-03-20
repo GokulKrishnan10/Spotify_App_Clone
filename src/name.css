@@ -1,0 +1,74 @@
+.outer-edit {
+  position: fixed;
+  margin-left: 15%;
+  margin-top: 3cm;
+  width: 14cm;
+  display: none;
+  border-radius: 15px;
+  height: 10.3cm;
+  background-color: rgb(40, 40, 40);
+}
+
+.inner-edit {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.inner-edit input {
+  width: 7cm;
+  border: none;
+  font-size: 15px;
+  background-color: rgb(62, 62, 62);
+  border-radius: 7px;
+  color: white;
+}
+.heading-1 {
+  margin-left: 6%;
+  color: white;
+  margin-top: 0.8cm;
+  font-weight: 8878;
+  font-size: 20px;
+}
+.icon-class {
+  width: 5cm;
+  height: 5cm;
+  box-shadow: 2px 2px 2px 2px black;
+  margin-left: 6%;
+}
+.icon {
+  margin-top: 26%;
+  margin-left: 20%;
+  color: rgb(127, 127, 127);
+  width: 90px;
+  height: 90px;
+}
+.second-in {
+  margin-top: 15px;
+  height: 3.5cm;
+  width: 6.5cm;
+  background-color: rgb(62, 62, 62);
+  color: white;
+  margin-left: 11px;
+}
+.save-button {
+  right: 0px;
+  margin-top: 5%;
+  width: 3cm;
+  height: 1.2cm;
+  margin-left: 4cm;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 867;
+  font-family: "Poppins", sans-serif;
+}
+.condition {
+  color: white;
+  font-size: 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  font-weight: bolder;
+}
+.form-edit {
+  margin-top: 0;
+  margin-left: 2.5%;
+}

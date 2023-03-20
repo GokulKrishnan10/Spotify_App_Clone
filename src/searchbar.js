@@ -1,6 +1,9 @@
 import "./search.css";
 import { BiSearch } from "react-icons/bi";
-function SearchBar({ dispArt }) {
+import { useSelector, useDispatch } from "react-redux";
+import { setselect } from "./actions";
+function SearchBar() {
+  const dispatch = useDispatch();
   return (
     <>
       <div>
@@ -20,7 +23,7 @@ function SearchBar({ dispArt }) {
               textAlign: "center",
               borderRadius: "20px",
             }}
-            onInput={dispArt}
+            onInput={() => dispatch(setselect("Artists"))}
             type="text"
             placeholder="what you want to hear?"
           />

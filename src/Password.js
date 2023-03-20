@@ -17,7 +17,7 @@ function Password({ onCancel }) {
       })
       .then((res) => {
         window.alert("Password Changed successfully");
-        localStorage.removeItem("user");
+        // localStorage.removeItem("user");
         history("/");
       })
       .catch((error) => console.log(error));
