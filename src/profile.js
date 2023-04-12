@@ -20,14 +20,11 @@ import Options from "./options";
 function Profile() {
   const [select, changeSelect] = useState("User");
   function displaySome() {
-    console.log("Clicked more than once");
     document.querySelector(".options").style.display = "fixed";
-    console.log(document.querySelector(".options").style);
   }
   const token = localStorage.getItem("user");
   const [data, setData] = useState({});
   function EditProfile() {
-    console.log("Token is", token);
     axios
       .get("http://localhost:4000/protected", {
         headers: {

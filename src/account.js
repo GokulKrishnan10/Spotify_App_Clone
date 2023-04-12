@@ -5,6 +5,10 @@ function Account({ onEdit }) {
   const user = localStorage.getItem("user");
   const [data, setData] = useState({});
   useEffect(() => {
+    axios
+      .get("http://localhost:4000", {})
+      .then((res) => console.log(res))
+      .catch((error) => console.error(error));
     //https://api.spotify.com/v1/search?q=Random%20Access%20Memories%20Daft%20Punk&type=album
     //https://api.spotify.com/v1/search?q={query}&type=track
     //https://api.spotify.com/v1/search?q=A.R.Rahman&type=artist
@@ -22,48 +26,47 @@ function Account({ onEdit }) {
     //   )
     //   .then((response) => console.log("Gokul----------------", response));
     //process.env.basic
-    console.log("Basic is ", process.env.basic);
-    axios
-      .post(
-        "https://accounts.spotify.com/api/token",
-        { grant_type: "client_credentials" },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic KEY`,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response.data.access_token);
-        axios
-          .get("https://api.spotify.com/v1/search/", {
-            headers: {
-              Authorization: `Bearer ${response.data.access_token}`,
-            },
-            params: {
-              q: "shakira",
-              type: "track",
-            },
-          })
-          .then((response) => console.log(response))
-          .catch((error) => console.error(error));
-      })
-      .catch((error) => console.error(error));
+    // console.log("Basic is ", process.env.basic);
     // axios
-    //   .get("http://localhost:4000/protected", {
-    //     headers: {
-    //       Authorization: `Bearer ${
-    //         JSON.parse(localStorage.getItem("user")).Token
-    //       }`,
-    //     },
-    //   })
-    //   .then((response) => response.data)
-    //   .then((data) => {
-    //     console.log("Hello");
-    //     setData(data);
+    //   .post(
+    //     "https://accounts.spotify.com/api/token",
+    //     { grant_type: "client_credentials" },
+    //     {
+    //       headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded",
+    //         Authorization: `Basic KEY`,
+    //       },
+    //     }
+    //   )
+    //   .then((response) => {
+    //     console.log(response.data.access_token);
+    //     axios
+    //       .get("https://api.spotify.com/v1/search/", {
+    //         headers: {
+    //           Authorization: `Bearer ${response.data.access_token}`,
+    //         },
+    //         params: {
+    //           q: "shakira",
+    //           type: "track",
+    //         },
+    //       })
+    //       .then((response) => console.log(response))
+    //       .catch((error) => console.error(error));
     //   })
     //   .catch((error) => console.error(error));
+    axios
+      .get("http://localhost:4000/protected", {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("user")).Token
+          }`,
+        },
+      })
+      .then((response) => response.data)
+      .then((data) => {
+        setData(data);
+      })
+      .catch((error) => console.error(error));
   }, []);
   return (
     <div className="user">

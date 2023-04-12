@@ -20,11 +20,12 @@ import Hang from "./hang";
 import Bar from "./Bar";
 import Language from "./Lang";
 import { useSelector, useDispatch } from "react-redux";
-import { setselect } from "./actions";
+import { setselect, addPlaylist } from "./actions";
 import Dark from "./dark";
 function Spotify() {
   console.log(localStorage.getItem("user"));
   const select = useSelector((state) => state.select);
+  const playlist = useSelector((state) => state.playlists);
   const dispatch = useDispatch();
   setselect({});
   const [name, setName] = useState([]);
@@ -35,11 +36,10 @@ function Spotify() {
       event.srcElement.id !== "loved" &&
       event.srcElement.id !== "hang" &&
       event.srcElement.id !== "outer-edit" &&
-      event.srcElement.id !== "second" &&
+      !event.srcElement.id.includes("Playlist") &&
       event.srcElement.id !== "inner-edit"
     ) {
       const hang = document.querySelector(".hang");
-
       const outer = document.querySelector(".outer-edit");
       if (outer !== null) {
         document.querySelector(".outer-edit").style.display = "none";
@@ -52,9 +52,10 @@ function Spotify() {
       }
     }
   });
-  function addPlaylist() {
+  function addPlaylists() {
     if (user === null || user === undefined) return;
-    setName([...name, "My Playlist #" + (name.length + 1)]);
+    dispatch(addPlaylist("My Playlist #" + (playlist.length + 1)));
+    //setName([...name, "My Playlist #" + (name.length + 1)]);
   }
   return (
     <>
@@ -103,7 +104,7 @@ function Spotify() {
                       document.querySelector(".hang").style.display = "block";
                     }
                   : () => {
-                      addPlaylist();
+                      addPlaylists();
                     }
               }
             >
@@ -126,7 +127,7 @@ function Spotify() {
           </ul>
           <hr style={{ borderColor: "grey" }} />
           <ul>
-            {name.map((element) => (
+            {playlist.map((element) => (
               <li
                 style={{ color: "rgb(179,179,179)", fontSize: "15px" }}
                 onClick={() => dispatch(setselect(element))}
@@ -155,12 +156,13 @@ function Spotify() {
             />
           )) ||
             (select === "deepSearch" && <DeepSearch />) ||
-            (select.includes("Playlist") && <Playlist number={select} />) ||
             (select === "Search" && <Search />) ||
             (select === "Liked" && <Liked />) ||
             (select === "Songs" && <Songs />) ||
             (select === "Artists" && <Bar />) ||
-            (select === "Language" && <Language />)}
+            (select === "Language" && <Language />) || (
+              <Playlist number={select} />
+            )}
         </div>
         {user !== null && typeof user !== "undefined" ? (
           <Play />

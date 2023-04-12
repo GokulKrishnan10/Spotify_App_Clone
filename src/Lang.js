@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 function Language({ language }) {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.select);
-  console.log("Change is ---------------------", currentPage);
   let arr = [];
   if (language === "tamil") {
     arr = ["vijay", "ajith", "annakili", "muthal mariyadhai", "amman"];
@@ -22,7 +21,6 @@ function Language({ language }) {
       }
     )
     .then((response) => {
-      console.log(response.data.access_token);
       axios
         .get("https://api.spotify.com/v1/search/", {
           headers: {

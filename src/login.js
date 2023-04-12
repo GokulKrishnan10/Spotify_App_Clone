@@ -10,8 +10,6 @@ function LogIn() {
     const formData = new FormData(event.target);
     const formValues = Object.fromEntries(formData);
     const data = Object.assign({}, formValues);
-    console.log(data);
-    console.log("Logging in");
     axios
       .post("http://localhost:4000/loggedin", data)
       .then((response) => response.data)
@@ -23,13 +21,6 @@ function LogIn() {
             mail: response.obj.email,
             Token: response.token,
           })
-        );
-        console.log("Successfully logged in ", response.obj.email);
-        console.log("Token is ", response.token);
-        console.log(
-          JSON.parse(localStorage.getItem("user")),
-          "Good and not good is ",
-          localStorage.getItem("no")
         );
         history("/");
       })

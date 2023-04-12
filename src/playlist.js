@@ -11,12 +11,10 @@ function Playlist({ number }) {
   const dispatch = useDispatch();
   const [search, setSearch] = useState([]);
   function appearOn() {
-    console.log("Clicked it");
     document.querySelector(".outer-edit").style.display = "block";
     document.querySelector(".all-dark").style.display = "block";
   }
   async function getResults(event) {
-    console.log(event.target.value);
     axios
       .post(
         "https://accounts.spotify.com/api/token",
@@ -24,7 +22,7 @@ function Playlist({ number }) {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic KEY`,
+            Authorization: `Basic MjVlMTI1MGUyNTMzNGQzNmFlYmZmODA5NDJkODI3MzU6OGUxN2RiNDg4ZDg4NGYxNzhhYTFiYTI4YTRiZTA3NmU=`,
           },
         }
       )
@@ -49,7 +47,7 @@ function Playlist({ number }) {
       .catch((error) => console.error(error));
   }
   return (
-    <div className="outerplay">
+    <div className="outerplay" id={number}>
       <div className="top-playlist">
         <div className="inner-playlist">
           <BsMusicNoteBeamed
@@ -66,7 +64,8 @@ function Playlist({ number }) {
         <ul style={{ marginLeft: "0", marginTop: "13%" }}>
           <li style={{ color: "white" }}>PLAYLIST</li>
           <li
-            id="second"
+            id={`${number}-heading`}
+            //id="second"
             className="playlist-name"
             style={{
               display: "flex",
@@ -89,7 +88,7 @@ function Playlist({ number }) {
         <br />
         <br />
         {edit === "select"}
-        <Name />
+        <Name name={number} />
       </div>
       <div className="down-playlist">
         <br />

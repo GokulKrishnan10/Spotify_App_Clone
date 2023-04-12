@@ -1,12 +1,26 @@
 import { BsMusicNoteBeamed } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import { updateIndex } from "./actions";
 import "./name.css";
-function Name() {
+function Name({ name }) {
+  const list = useSelector((state) => state.playlists);
+  const stat = useSelector((state) => state.playlists);
+  const dispatch = useDispatch();
   function addName(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const formValues = Object.fromEntries(formData);
     const data = Object.assign({}, formValues);
-    console.log("Data name is ", data.name);
+    document.querySelector(".outer-edit").style.display = "none";
+    document.getElementById(`${name}-heading`).innerHTML = data.name;
+    const index = list.indexOf(name);
+    name = data.name;
+    try {
+      const obj = { index, newValue: data.name };
+      dispatch(updateIndex(obj));
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className="outer-edit" id="outer-edit">

@@ -10,7 +10,6 @@ function Original({ logg, display }) {
       .get("http://localhost:4000/getimages")
       .then((res) => res.data)
       .then((singers) => {
-        console.log("In axios");
         if (!loaded) {
           singers.forEach((element) => {
             axios({

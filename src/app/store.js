@@ -19,6 +19,15 @@ function storeReduce(state = initialValue, actions) {
     case "set-change": {
       return { ...state, change: actions.payload };
     }
+    case "update-index": {
+      const { index, newValue } = actions.payload;
+      return {
+        ...state,
+        playlists: state.playlists.map((value, i) =>
+          i === index ? newValue : value
+        ),
+      };
+    }
     default: {
       return state;
     }

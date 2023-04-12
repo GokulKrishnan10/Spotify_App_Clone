@@ -8,7 +8,6 @@ function Password({ onCancel }) {
     const formData = new FormData(event.target);
     const formValues = Object.fromEntries(formData);
     const data = Object.assign({}, formValues);
-    console.log("Updated is", data);
     axios
       .post("http://localhost:4000/protected/password", data, {
         headers: {
