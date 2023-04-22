@@ -383,3 +383,8 @@ select option {
   background-color: rgb(179, 179, 179);
   height: 5cm;
 }
+.icon-div {
+  display: flex;
+  flex-direction: row;
+  margin-left: 13%;
+}

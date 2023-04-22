@@ -1,0 +1,15 @@
+.search-outer {
+  flex: 80%;
+  background-color: rgb(18, 18, 18);
+  height: 100%;
+  overflow: hidden;
+}
+.inner-map {
+  display: flex;
+  width: 100%;
+  height: 40cm;
+  background-color: rgb(18, 18, 18);
+  margin-top: 20px;
+  flex-wrap: wrap;
+  margin-left: 3%;
+}

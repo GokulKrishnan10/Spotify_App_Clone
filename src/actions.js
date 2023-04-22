@@ -14,3 +14,7 @@ export const setEdit = (edit) => ({
   type: "set-edit",
   payload: edit,
 });
+export const setUrl = (url) => ({
+  type: "set-url",
+  payload: url,
+});

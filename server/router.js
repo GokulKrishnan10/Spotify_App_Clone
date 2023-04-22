@@ -37,7 +37,7 @@ router.get("/get.account.data", authenticate, (req, response) => {
     }
   );
 });
-router.get("/new", (req, res) => {
+router.get("/fake", (req, res) => {
   res.send("<h1>Hello,There in router</h1>");
 });
 

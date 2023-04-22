@@ -1,4 +1,4 @@
-import "./home.css";
+import "./spotify.css";
 import Original from "./original";
 import Play from "./play";
 import { AiFillHome, AiFillPlusSquare, AiFillHeart } from "react-icons/ai";
@@ -55,32 +55,14 @@ function Spotify() {
   function addPlaylists() {
     if (user === null || user === undefined) return;
     dispatch(addPlaylist("My Playlist #" + (playlist.length + 1)));
-    //setName([...name, "My Playlist #" + (name.length + 1)]);
   }
   return (
     <>
-      <div
-        className="dark"
-        style={{
-          display: "flex",
-          backgroundColor: " rgb(29, 29, 29)",
-          width: "100%",
-          height: "100%",
-        }}
-      >
+      <div className="dark" style={{}}>
         <Dark />
         <div className="side-div" style={{ marginTop: "0" }}>
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <FontAwesomeIcon
-              icon={faSpotify}
-              style={{
-                color: "white",
-                width: "45px",
-                height: "45px",
-                marginTop: "20px",
-                marginLeft: "40px",
-              }}
-            />
+            <FontAwesomeIcon icon={faSpotify} className="spotify-icon" />
             <h1 style={{ marginLeft: "10px", fontWeight: "500" }}>Spotify</h1>
           </div>
 
@@ -173,14 +155,13 @@ function Spotify() {
         {user != null ? (
           <div
             className="hidden-name"
-            style={{
-              marginTop: "2.2cm",
-              marginLeft: "80%",
-              position: "fixed",
-              backgroundColor: "rgb(24, 24, 24)",
-              marginBottom: "2%",
-            }}
-            onClick={{}}
+            // style={{
+            //   marginTop: "2.2cm",
+            //   marginLeft: "80%",
+            //   position: "fixed",
+            //   backgroundColor: "rgb(24, 24, 24)",
+            //   marginBottom: "2%",
+            // }}
           >
             <h5 style={{ color: "white" }}>{user}</h5>
           </div>

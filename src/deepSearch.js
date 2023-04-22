@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Node from "./node";
-
+import "./deepSearch.css";
 function DeepSearch() {
   const [array, setArray] = useState([]);
 
@@ -32,32 +32,11 @@ function DeepSearch() {
     setLoad(true);
   }, [loaded]);
   return (
-    <div
-      style={{
-        flex: "80%",
-        backgroundColor: "rgb(18,18,18)",
-        height: "100%",
-        overflow: "hidden",
-        // width: "100%",
-        // display: "flex",
-      }}
-    >
+    <div className="search-outer">
       <h2 style={{ color: "white", marginLeft: "5%" }}>
         Spotify Original and Exclusive podcasts
       </h2>
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "40cm",
-          backgroundColor: "rgb(18,18,18)",
-          marginTop: "20px",
-          flexWrap: "wrap",
-          marginLeft: "3%",
-        }}
-      >
-        {array.map((element) => element)}
-      </div>
+      <div className="inner-map">{array.map((element) => element)}</div>
     </div>
   );
 }

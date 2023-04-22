@@ -6,6 +6,7 @@ import Name from "./name";
 import { useSelector, useDispatch } from "react-redux";
 import Dark from "./dark";
 import axios from "axios";
+import PlayResult from "./playlist_result";
 function Playlist({ number }) {
   const edit = useSelector((state) => state.edit);
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function Playlist({ number }) {
           })
           .then((response) => {
             console.log(response.data.tracks.items);
+            console.log(response.data.tracks.items[2].preview_url);
             setSearch(response.data.tracks.items);
           })
           .catch((error) => console.error(error));
@@ -136,7 +138,7 @@ function Playlist({ number }) {
         </div>
         <div className="lists">
           {search.map((element) => (
-            <li className="song-display">{element.name}</li>
+            <PlayResult name={element.name} url={element.preview_url} />
           ))}
         </div>
 

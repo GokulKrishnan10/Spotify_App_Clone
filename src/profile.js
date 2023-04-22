@@ -43,9 +43,7 @@ function Profile() {
       <div className="nav-div">
         <Options />
 
-        <div
-          style={{ display: "flex", flexDirection: "row", marginLeft: "13%" }}
-        >
+        <div className="icon-div">
           <FontAwesomeIcon
             icon={faSpotify}
             style={{

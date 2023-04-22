@@ -4,6 +4,7 @@ const initialValue = {
   playlists: [],
   edit: "",
   change: "User",
+  url: "",
 };
 function storeReduce(state = initialValue, actions) {
   switch (actions.type) {
@@ -27,6 +28,10 @@ function storeReduce(state = initialValue, actions) {
           i === index ? newValue : value
         ),
       };
+    }
+    case "set-url": {
+      console.log("In Store.js", actions.payload);
+      return { ...state, url: actions.payload };
     }
     default: {
       return state;

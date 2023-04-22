@@ -1,0 +1,30 @@
+.result {
+  display: flex;
+  width: 25cm;
+  height: 1.5cm;
+  background-color: rgb(18, 18, 18);
+  flex-direction: row;
+  margin: 0px;
+}
+.text {
+  font-size: 15px;
+  color: white;
+}
+.adding {
+  margin-top: 0px;
+  margin-bottom: 15px;
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 15px;
+  width: 1.5cm;
+  border-radius: 30px;
+  font-family: "Poppins", sans-serif;
+  height: 0.7cm;
+  background-color: rgb(18, 18, 18);
+  color: white;
+  border: 2px solid white;
+}
+.result:hover {
+  background-color: rgb(44, 44, 44);
+  cursor: pointer;
+}
