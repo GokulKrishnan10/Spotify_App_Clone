@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Dark from "./dark";
 import axios from "axios";
 import PlayResult from "./playlist_result";
+
 function Playlist({ number }) {
   const edit = useSelector((state) => state.edit);
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ function Playlist({ number }) {
     document.querySelector(".outer-edit").style.display = "block";
     document.querySelector(".all-dark").style.display = "block";
   }
-  async function getResults(event) {
+  function getResults(event) {
+    console.log("Secret is--------", process.env.REACT_APP_REACT);
     axios
       .post(
         "https://accounts.spotify.com/api/token",
@@ -23,7 +25,7 @@ function Playlist({ number }) {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Basic MjVlMTI1MGUyNTMzNGQzNmFlYmZmODA5NDJkODI3MzU6OGUxN2RiNDg4ZDg4NGYxNzhhYTFiYTI4YTRiZTA3NmU=`,
+            Authorization: `Basic ${process.env.REACT_APP_REACT}`,
           },
         }
       )
@@ -52,28 +54,14 @@ function Playlist({ number }) {
     <div className="outerplay" id={number}>
       <div className="top-playlist">
         <div className="inner-playlist">
-          <BsMusicNoteBeamed
-            style={{
-              marginTop: "30%",
-              marginLeft: "25%",
-              color: "rgb(127,127,127)",
-              width: "90px",
-              height: "90px",
-            }}
-          />
+          <BsMusicNoteBeamed className="music-note" />
         </div>
 
         <ul style={{ marginLeft: "0", marginTop: "13%" }}>
           <li style={{ color: "white" }}>PLAYLIST</li>
           <li
             id={`${number}-heading`}
-            //id="second"
             className="playlist-name"
-            style={{
-              display: "flex",
-              color: "white",
-              fontWeight: "800",
-            }}
             onClick={appearOn}
           >
             {number}
@@ -100,40 +88,13 @@ function Playlist({ number }) {
           Let's find something for your playlist
         </h3>
         <br />
-        <div
-          style={{
-            width: "9cm",
-            height: "1.2cm",
-            backgroundColor: "rgb(44,44,44)",
-            display: "flex",
-            marginLeft: "5%",
-            borderRadius: "20px",
-          }}
-        >
-          <BiSearch
-            style={{
-              marginLeft: "3%",
-              color: "white",
-              marginTop: "3%",
-              width: "25px",
-              height: "25px",
-            }}
-          />
+        <div className="search-div">
+          <BiSearch className="search-icon" />
           <input
             className="input-search"
             type="text"
             placeholder="Search for songs or episodes"
             onInput={getResults}
-            style={{
-              fontSize: "16px",
-              width: "7cm",
-              marginTop: "3%",
-              marginLeft: "7%",
-              height: "0.7cm",
-              backgroundColor: "rgb(44,44,44)",
-              border: "none",
-              color: "white",
-            }}
           />
         </div>
         <div className="lists">

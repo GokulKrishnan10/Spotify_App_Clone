@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./Signupfree.css";
 function SignupFree() {
   return (
     <div className="free-sign">
@@ -10,15 +11,7 @@ function SignupFree() {
         </li>
       </ul>
       <Link to="/signup">
-        <button
-          style={{
-            marginLeft: "410%",
-            marginTop: "8%",
-            fontFamily: '"Poppins", sans-serif',
-          }}
-        >
-          Sign Up free
-        </button>
+        <button className="sign-up">Sign Up free</button>
       </Link>
       <br />
     </div>

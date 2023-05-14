@@ -16,6 +16,8 @@ app.listen(PORT, () => {
 });
 app.use(express.json());
 app.use("/protected", router);
+
+//CORS Header
 app.use(
   cors({
     origin: "http://localhost:3000",

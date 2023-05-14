@@ -34,3 +34,20 @@
   font-size: 20px;
   color: white;
 }
+.searchbar {
+  background-color: rgb(18, 18, 18);
+}
+.image-search {
+  margin: 4%;
+  height: 2.5cm;
+  width: 2.5cm;
+  border-radius: 55px;
+}
+.song-list {
+  margin-left: 5%;
+  background-color: rgb(18, 18, 18);
+}
+.song-result {
+  margin-left: 5%;
+  background-color: rgb(18, 18, 18);
+}

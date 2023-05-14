@@ -5,37 +5,37 @@ const jwt = require("jsonwebtoken");
 const salt = 10;
 const bcrypt = require("bcrypt");
 require("./connect");
+require("dotenv").config();
 const User = require("./user");
+
+//CORS Header
+router.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 //GET requests ROUTING
 router.get("/", authenticate, (req, res) => {
-  jwt.verify(
-    req.token.token,
-    "678342687jhdshgdvssxdf8789kj8yhjhj",
-    function (error, decoded) {
-      //console.log("Decoded is ", decoded);
-      if (error) {
-        res.status(404).send("No User");
-      } else {
-        res.status(200).send(decoded);
-      }
+  jwt.verify(req.token.token, process.env.JWT_KEY, function (error, decoded) {
+    //console.log("Decoded is ", decoded);
+    if (error) {
+      res.status(404).send("No User");
+    } else {
+      res.status(200).send(decoded);
     }
-  );
+  });
 });
 
 router.get("/get-privacydata", authenticate, (req, res) => {});
 router.get("/get.account.data", authenticate, (req, response) => {
   //const form = req.token;
-  jwt.verify(
-    req.token.token,
-    "678342687jhdshgdvssxdf8789kj8yhjhj",
-    function (error, decoded) {
-      if (error) {
-        response.status(404).send("No User");
-      } else {
-      }
+  jwt.verify(req.token.token, process.env.JWT_KEY, function (error, decoded) {
+    if (error) {
+      response.status(404).send("No User");
+    } else {
     }
-  );
+  });
 });
 router.get("/fake", (req, res) => {
   res.send("<h1>Hello,There in router</h1>");
@@ -43,7 +43,6 @@ router.get("/fake", (req, res) => {
 
 //POST requests ROUTING
 router.post("/password", authenticate, (req, response) => {
-  // console.log("In password Router", req.token);
   const form = req.token;
   jwt.verify(
     req.token.token,
@@ -65,6 +64,7 @@ router.post("/password", authenticate, (req, response) => {
     }
   );
 });
+
 router.post("/update-details", authenticate, (req, res) => {
   const form = req.token;
   jwt.verify(
@@ -89,11 +89,11 @@ router.post("/update-details", authenticate, (req, res) => {
   );
 });
 
+router.post("/update-playlists", authenticate, (req, res) => {});
+
 //Middleware functions
 function authenticate(req, res, next) {
   const Bearer = req.headers.authorization;
-  //console.log("In password Router Authentication", req);
-  // console.log("Request is", req.body);
   if (typeof Bearer !== "undefined") {
     const token = Bearer.split(" ");
     const obj = { ...req.body, token: token[1] };
@@ -105,9 +105,4 @@ function authenticate(req, res, next) {
   }
 }
 
-router.use(
-  cors({
-    origin: "http://localhost:3000",
-  })
-);
 module.exports = router;

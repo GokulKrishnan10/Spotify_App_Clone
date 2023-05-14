@@ -7,6 +7,7 @@ function User() {
   const user = localStorage.getItem("user");
   const history = useNavigate();
   function getAuth() {
+    console.log("user------------", user);
     axios
       .get("http://localhost:4000/protected", {
         headers: {

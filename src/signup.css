@@ -134,3 +134,15 @@ input[type="radio"] {
   height: 100vh;
   margin-left: 0%;
 }
+.spotify-icon {
+  color: black;
+  width: 45px;
+  height: 45px;
+  margin-top: 0.3cm;
+  margin-left: 40px;
+}
+.spotify-head {
+  margin-left: 10px;
+  font-weight: 990;
+  margin-top: 0.3cm;
+}

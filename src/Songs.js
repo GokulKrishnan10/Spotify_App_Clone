@@ -1,29 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import "./Songs.css";
 function Songs() {
   return (
-    <div
-      className="top-songs"
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100%",
-        backgroundImage:
-          "linear-gradient(to top, #121212, #16141d, #181527, #1c1631, #1f173b);",
-      }}
-    >
+    <div className="top-songs">
       <div className="songs-top">
         <div className="songs-heart">
-          <FontAwesomeIcon
-            icon={faHeart}
-            style={{
-              color: "red",
-              width: "3cm",
-              height: "3cm",
-              alignSelf: "center",
-              marginLeft: "25%",
-            }}
-          />
+          <FontAwesomeIcon icon={faHeart} className="heart-icon" />
         </div>
         <ul style={{ color: "white", marginTop: "7%" }}>
           <li>PLAYLIST</li>

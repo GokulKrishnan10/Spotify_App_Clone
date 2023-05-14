@@ -39,38 +39,34 @@ function Profile() {
   useEffect(EditProfile, []);
   //  console.log("data is ", data);
   return (
-    <div style={{ backgroundColor: "rgb(27,38,58)" }}>
+    <div className="outer-profile" style={{ backgroundColor: "rgb(27,38,58)" }}>
       <div className="nav-div">
         <Options />
 
         <div className="icon-div">
-          <FontAwesomeIcon
-            icon={faSpotify}
-            style={{
-              color: "white",
-              width: "45px",
-              height: "45px",
-              marginTop: "20px",
-              marginLeft: "40px",
-            }}
-          />
+          <FontAwesomeIcon icon={faSpotify} className="spotify-icon" />
           <h1 style={{ marginLeft: "10px", fontWeight: "500" }}>Spotify</h1>
         </div>
-        <ul id="tops">
-          <li>Premium</li>
-          <li>Support</li>
-          <li>Download</li>
-          <li>|</li>
-          <li>
-            <span
-              style={{ marginLeft: "7%", marginTop: "7%", display: "flex" }}
-              onClick={displaySome}
-            >
-              <AccountCircleIcon />
-              Profile
-            </span>
-          </li>
-        </ul>
+        <div
+          className="tops-div"
+          style={{ display: "flex", alignSelf: "flex-end" }}
+        >
+          <ul id="tops">
+            <li>Premium</li>
+            <li>Support</li>
+            <li>Download</li>
+            <li>|</li>
+            <li>
+              <span
+                style={{ marginLeft: "7%", marginTop: "7%", display: "flex" }}
+                onClick={displaySome}
+              >
+                <AccountCircleIcon />
+                Profile
+              </span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="row1">
         <div className="side-div1">
@@ -145,15 +141,7 @@ function Profile() {
         )}
       </div>
       <div className="fotter">
-        <div
-          style={{
-            width: "5cm",
-            height: "7cm",
-            display: "inline-block",
-            marginTop: "4cm",
-            marginLeft: "12.5%",
-          }}
-        >
+        <div className="inner-footer">
           <ul style={{ color: "white" }}>
             <li>COMPANY</li>
             <li>About</li>
@@ -161,15 +149,7 @@ function Profile() {
             <li>For record</li>
           </ul>
         </div>
-        <div
-          style={{
-            width: "5cm",
-            height: "7cm",
-            display: "inline-block",
-            marginTop: "4cm",
-            marginLeft: "15%",
-          }}
-        >
+        <div className="fotter-1">
           <ul style={{ color: "white" }}>
             <li>COMMUNITIES</li>
             <li>About</li>
@@ -177,15 +157,7 @@ function Profile() {
             <li>For record</li>
           </ul>
         </div>
-        <div
-          style={{
-            width: "5cm",
-            height: "7cm",
-            display: "inline-block",
-            marginTop: "4cm",
-            marginLeft: "15%",
-          }}
-        >
+        <div className="links-fotter">
           <ul style={{ color: "white" }}>
             <li>USEFUL LINKS</li>
             <li>About</li>

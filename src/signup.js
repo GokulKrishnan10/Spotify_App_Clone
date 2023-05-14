@@ -64,25 +64,8 @@ function SignUp() {
     <div className="signup-container">
       <div className="login">
         <div className="spotify">
-          <FontAwesomeIcon
-            icon={faSpotify}
-            style={{
-              color: "black",
-              width: "45px",
-              height: "45px",
-              marginTop: "0.3cm",
-              marginLeft: "40px",
-            }}
-          />
-          <h2
-            style={{
-              marginLeft: "10px",
-              fontWeight: "990",
-              marginTop: "0.3cm",
-            }}
-          >
-            Spotify
-          </h2>
+          <FontAwesomeIcon icon={faSpotify} className="spotify-icon" />
+          <h2 className="spotify-head">Spotify</h2>
         </div>
         <h2 style={{ marginLeft: "1cm" }}>
           Sign up for free to start listening.

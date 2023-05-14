@@ -1,38 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import "./Liked.css";
 function Liked() {
   return (
-    <div
-      className="top-like"
-      style={{
-        display: "flex",
-        width: "100%",
-        height: "100vh",
-        backgroundImage:
-          "linear-gradient(to top, #121212, #16141d, #181527, #1c1631, #1f173b);",
-      }}
-    >
+    <div className="top-like">
       <div className="liked-top">
         <div className="like-heart">
-          <FontAwesomeIcon
-            icon={faHeart}
-            style={{
-              color: "white",
-              width: "3cm",
-              height: "3cm",
-              alignSelf: "center",
-              marginLeft: "25%",
-            }}
-          />
+          <FontAwesomeIcon icon={faHeart} className="heart-icon" />
         </div>
-        <ul style={{ color: "white", marginTop: "7%" }}>
+        <ul>
           <li>PLAYLIST</li>
-          <li id="heart" style={{ fontSize: "65px", fontWeight: "800" }}>
-            Liked Songs
-          </li>
+          <li id="heart">Liked Songs</li>
           <li>Gokula Krishnan Elangovan</li>
         </ul>
       </div>
+      <div className="down-liked"></div>
     </div>
   );
 }

@@ -11,7 +11,8 @@ function Play() {
       <br />
       <embed
         src={url}
-        autostart="false"
+        autostart="true"
+        autoplay="true"
         width="300"
         height="90"
         className="embed-container"

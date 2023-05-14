@@ -1,0 +1,68 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.top-like {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    #121212,
+    #16141d,
+    #181527,
+    #1c1631,
+    #1f173b
+  );
+}
+.liked-top {
+  background-image: linear-gradient(
+    to top,
+    #30225e,
+    #37276c,
+    #3e2c79,
+    #463288,
+    #4d3796
+  ) !important;
+  width: 100%;
+  height: 9cm;
+  display: flex;
+}
+.like-heart {
+  display: flex;
+  background-image: linear-gradient(
+    to left top,
+    #737f8f,
+    #54709f,
+    #3c5eac,
+    #3748b2,
+    #4927b1
+  );
+  margin-top: 5%;
+  margin-left: 3%;
+  width: 7cm;
+  height: 7cm;
+}
+.heart-icon {
+  color: white;
+  width: 3cm;
+  height: 3cm;
+  align-self: center;
+  margin-left: 25%;
+}
+#heart {
+  font-size: 65px;
+  font-weight: 800;
+}
+.liked-top ul {
+  color: white;
+  margin-top: 7%;
+}
+.down-liked {
+  color: red;
+  height: 100%;
+}

@@ -1,4 +1,4 @@
-import "./home.css";
+import "./spotify.css";
 import axios from "axios";
 import Node from "./node";
 import { useState, useEffect } from "react";

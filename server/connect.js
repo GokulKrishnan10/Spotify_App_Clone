@@ -11,3 +11,4 @@ db.on("error", () => {
 db.once("open", () => {
   console.log("MongoDB Connection succeeded");
 });
+require("./playlist");
